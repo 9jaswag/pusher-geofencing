@@ -1,8 +1,9 @@
 // server should not be here. It's just put here for convenience
-require('dotenv').config()
 const express = require('express');
 const bodyParser = require('body-parser');
 const Pusher = require('pusher');
+require('dotenv').config()
+
 
 const app = express();
 app.use(bodyParser.json());
@@ -27,9 +28,9 @@ app.get('/', function (req, res) { // to test if the server is running
 });
 
 app.post('/check-in', function (req, res) {
-  const { lat, lng } = req.body;
-  if (lat && lng) {
-    const location = { lat, lng };
+  const { lat, lng, name } = req.body;
+  if (lat && lng && name) {
+    const location = { lat, lng, name };
     pusher.trigger('location', 'checkin', { location });
   } else {
     res.status(400).send({ success: false, message: 'text not broadcasted' })

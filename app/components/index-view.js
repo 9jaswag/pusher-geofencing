@@ -13,7 +13,7 @@ export default Component.extend({
             const userDetail = { lat: latitude, lng: longitude, name: this.name }
             console.log(userDetail);
             $.ajax({
-              url: 'http://localhost:5000',
+              url: 'http://localhost:5000/check-in',
               type: 'post',
               data: userDetail
             })
