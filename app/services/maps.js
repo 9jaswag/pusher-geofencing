@@ -25,9 +25,6 @@ export default Service.extend({
       center: center,
       radius: rangeRadius
     });
-
-    // this.locationDistance(center, center3)
-
   },
 
   addMarker(center, map, icon = false) {
@@ -38,19 +35,44 @@ export default Service.extend({
     }
     let parsedCenter = {
       lat: parseFloat(center.lat),
-      lng: parseFloat(center.lng)
+      lng: parseFloat(center.lng),
+      name: center.name,
+      userId: center.userId
     }
     new google.maps.Marker({ position: parsedCenter, map: map, icon });
+    this.addUserWithinRange(parsedCenter);
   },
 
-  addUsers() { },
+  addUserWithinRange(userLocation) {
+    if (userLocation.name) {
+      let userDistance = this.locationDistance(userLocation);
+      let existingUser = $('div').find('[data-id="' + userLocation.userId + '"]'); // find the user on the page via the data-id attribute
+      if (userDistance < 500) { // if the user is within the range
+        if (!existingUser[0]) { // if the user is not already displayed on the page
+          let div = document.createElement('div');
+          div.className = 'available-user';
+          div.dataset.id = userLocation.userId;
+          let span = document.createElement('span');
+          span.className = 'text-white';
+          let username = `@${userLocation.name}`
+          span.append(username);
+          div.append(span);
+          const usersDiv = document.querySelector('.users');
+          usersDiv.append(div);
+        }
+      } else {
+        existingUser.remove();
+      }
+    }
+  },
 
-  locationDistance(center1, center2) {
-    const point1 = new google.maps.LatLng(center1.lat, center1.lng);
-    const point2 = new google.maps.LatLng(center2.lat, center2.lng);
+  locationDistance(userLocation) {
+    const targetLocation = { lat: 6.436914, lng: 3.451432 };
+    const point1 = new google.maps.LatLng(targetLocation.lat, targetLocation.lng);
+    const point2 = new google.maps.LatLng(userLocation.lat, userLocation.lng);
 
     const distance = google.maps.geometry.spherical.computeDistanceBetween(point1, point2);
-    console.log(distance)
+    return distance;
   }
 
 });
