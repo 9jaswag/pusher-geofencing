@@ -32,12 +32,9 @@ app.post('/check-in', function (req, res) {
   let { lat, lng, name, userId } = req.body;
   if (lat && lng && name) {
     if (userId.length == 0) {
-      console.log('set it')
       userId = uuid();
-    } else {
-      console.log('dont')
     }
-    const location = { lat, lng, name };
+    const location = { lat, lng, name, userId };
     pusher.trigger('location', 'checkin', { location });
     res.send({ success: true, userId })
   } else {
