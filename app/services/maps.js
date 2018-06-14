@@ -41,6 +41,8 @@ export default Service.extend({
   addMarker(center, map, icon = false) {
     if (icon) {
       icon = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+    } else {
+      icon = ""
     }
     new google.maps.Marker({ position: center, map: map, icon });
   },
