@@ -1,0 +1,11 @@
+<div class="jumbotron jumbotron-fluid text-center align-middle">
+  {{#if isCheckedIn}}
+  <h4>You're checked in</h4>
+  {{else}}
+  <h4>Welcome to Pusher Geofencer</h4>
+  <div class="col-4 mt-5 offset-4">
+    {{input value=name class="form-control" placeholder="Enter your name"}}
+    <button{{action "checkin"}} class="btn btn-success mt-5">Check in</button>
+  </div>
+  {{/if}}
+</div>
