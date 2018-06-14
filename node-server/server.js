@@ -2,6 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const Pusher = require('pusher');
+const uuid = require('uuid').v4;
 require('dotenv').config()
 
 
@@ -28,10 +29,17 @@ app.get('/', function (req, res) { // to test if the server is running
 });
 
 app.post('/check-in', function (req, res) {
-  const { lat, lng, name } = req.body;
+  let { lat, lng, name, userId } = req.body;
   if (lat && lng && name) {
+    if (userId.length == 0) {
+      console.log('set it')
+      userId = uuid();
+    } else {
+      console.log('dont')
+    }
     const location = { lat, lng, name };
     pusher.trigger('location', 'checkin', { location });
+    res.send({ success: true, userId })
   } else {
     res.status(400).send({ success: false, message: 'text not broadcasted' })
   }
