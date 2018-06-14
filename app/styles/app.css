@@ -1,3 +1,7 @@
 #map {
   height: 42rem;
 }
+
+.jumbotron {
+  height: 100vh;
+}
