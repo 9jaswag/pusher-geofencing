@@ -32,7 +32,6 @@ PUSHER_APP_CLUSTER: 'your pusher cluster'
 
 * `ember serve`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
-* Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
 
 Built With
 ------
