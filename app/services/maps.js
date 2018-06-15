@@ -1,7 +1,7 @@
 import Service from '@ember/service';
 
 const google = window.google;
-const targetLocation = { lat: 6.5698617, lng: 3.3731415 };
+const targetLocation = { lat: 6.436914, lng: 3.451432 };
 const rangeRadius = 500;
 
 export default Service.extend({
