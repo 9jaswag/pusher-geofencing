@@ -1,4 +1,5 @@
 import Service from '@ember/service';
+import $ from 'jquery';
 
 const google = window.google;
 const targetLocation = { lat: 6.436914, lng: 3.451432 };
