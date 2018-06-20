@@ -23,9 +23,9 @@ You will also need the following things properly installed on your computer.
 - Create a `.env` file in the `node-server` directory and add the following to it:
 ```
 PUSHER_APP_ID: 'your Pusher app ID'
-PUSHER_APP_KEY: 'your pusher kep'
-PUSHER_APP_SECRET: 'your pusher secret'
-PUSHER_APP_CLUSTER: 'your pusher cluster'
+PUSHER_APP_KEY: 'your Pusher app key'
+PUSHER_APP_SECRET: 'your Pusher app secret'
+PUSHER_APP_CLUSTER: 'your Pusher app cluster'
 ```
 
 ## Running / Development
