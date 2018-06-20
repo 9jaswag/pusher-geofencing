@@ -2,10 +2,16 @@ import Service from '@ember/service';
 import $ from 'jquery';
 
 const google = window.google;
-const targetLocation = { lat: 6.436914, lng: 3.451432 };
+let targetLocation;
 const rangeRadius = 500;
 
 export default Service.extend({
+
+  // function to create admin's map
+  createAdminMap(adminLocation) {
+    targetLocation = adminLocation;
+    this.createMapElement([]) // call the create map function passing empty user locations
+  },
 
   createMapElement(usersLocation) {
     const element = document.querySelector('#map');
