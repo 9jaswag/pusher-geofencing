@@ -21,11 +21,16 @@ You will also need the following things properly installed on your computer.
 #### Setup Env variables
 
 - Create a `.env` file in the `node-server` directory and add the following to it:
-```
+```sh
 PUSHER_APP_ID: 'your Pusher app ID'
 PUSHER_APP_KEY: 'your Pusher app key'
 PUSHER_APP_SECRET: 'your Pusher app secret'
 PUSHER_APP_CLUSTER: 'your Pusher app cluster'
+```
+Replace the constants above with your Pusher credentials.
+- Open the `index.html` file and add your Google Maps API key
+```html
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=geometry"></script>
 ```
 
 ## Running / Development
