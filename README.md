@@ -32,6 +32,13 @@ Replace the constants above with your Pusher credentials.
 ```html
 <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=geometry"></script>
 ```
+- Add your Pusher credentials in `app/components/display-maps.js`
+```javascript
+let pusher = new Pusher('YOUR_APP_KEY', {
+  cluster: 'CLUSTER',
+  encrypted: true
+});
+```
 
 ## Running / Development
 
