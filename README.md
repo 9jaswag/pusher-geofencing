@@ -3,6 +3,8 @@ Build a geofencing web app using Ember.js
 
 A tutorial to showcase realtime functionality of Pusher Channels in Ember
 
+[View tutorial](https://pusher.com/tutorials/geofencing-ember)
+
 ## Prerequisites
 
 A basic knowledge of JavaScript.
